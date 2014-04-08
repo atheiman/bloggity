@@ -1,1 +1,9 @@
-Style include
+<style>
+
+body {
+  background-color: #333;
+}
+
+
+
+</style>
