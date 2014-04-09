@@ -1,20 +1,22 @@
 <?php
 session_start();
+// Testing
+$_SESSION["userType"] = "Administrator";
 
 // Secure Page
-//if (!isset($_SESSION['userType'])) {header('Location: login.php');}
+//if (!isset($_SESSION["userType"])) {header("Location: login.php");}
 
 // Admin Only Page
-//if ($_SESSION['userType'] != 'Administrator') {die('This page is restricted to Adminstrators');}
+//if ($_SESSION["userType"] != "Administrator") {die("This page is restricted to Adminstrators");}
 
 // MySQL connection
-//include '/resources/db_connect.php';
+include $_SERVER['DOCUMENT_ROOT']."/bloggity/resources/db_connect.php";
 
 ?>
 <!doctype html>
 <html>
 <head>
-<?php include '/resources/head_tags.php' ?>
+<?php include $_SERVER['DOCUMENT_ROOT']."/bloggity/resources/head_tags.php" ?>
 <style>
 
 </style>
@@ -25,10 +27,11 @@ session_start();
 
 <body onload="">
 <?php
-include '/resources/page_header.php';
+include $_SERVER['DOCUMENT_ROOT']."/bloggity/resources/header.php";
+echo $_SERVER["DOCUMENT_ROOT"];
 ?>
 
-
+got this far
 </body>
 
 </html>
