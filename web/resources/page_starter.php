@@ -28,7 +28,6 @@ include $_SERVER['DOCUMENT_ROOT']."/bloggity/resources/db_connect.php";
 <body onload="">
 <?php
 include $_SERVER['DOCUMENT_ROOT']."/bloggity/resources/header.php";
-echo $_SERVER["DOCUMENT_ROOT"];
 ?>
 
 got this far
