@@ -26,11 +26,7 @@ include $_SERVER['DOCUMENT_ROOT']."/bloggity/resources/db_connect.php";
 </head>
 
 <body onload="">
-<?php
-include $_SERVER['DOCUMENT_ROOT']."/bloggity/resources/header.php";
-?>
 
-got this far
 </body>
 
 </html>
