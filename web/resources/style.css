@@ -3,5 +3,57 @@ body {
   font-size: 1em;
   color: #000;
   margin: 0px auto;
-  min-width: 800px;
+  width: 1000px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover { text-decoration: underline; }
+
+.gray { color: #555; }
+.black { color: #000; }
+.white { color: #FFF; }
+.gray_bg { background-color: #BBB; }
+.black_bg { background-color: #000; }
+.white_bg { background-color: #FFF; }
+.center {text-align: center; }
+
+#header_bar {
+  padding: 0px;
+  float:left;
+  height: 60px;
+  width: 100%;
+  vertical-align: middle;
+  line-height: 60px;
+  background-color: lightpink;
+}
+
+#admin_bar {
+  float:left;
+  height: 200px;
+}
+
+#admin_bar a {
+  display: block;
+  padding: 10px 0px;
+}
+
+#admin_bar a:hover {
+  
+}
+
+#page_content {
+  float:left;
+  background-color: lightskyblue;
+}
+
+#page_content a {
+  text-decoration: underline;
+}
+
+#page_content a:hover {
+  color: blue;
 }
