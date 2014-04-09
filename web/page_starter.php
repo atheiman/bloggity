@@ -10,13 +10,13 @@ $_SESSION["userType"] = "Administrator";
 //if ($_SESSION["userType"] != "Administrator") {die("This page is restricted to Adminstrators");}
 
 // MySQL connection
-include $_SERVER['DOCUMENT_ROOT']."/bloggity/resources/db_connect.php";
+include "./resources/db_connect.php";
 
 ?>
 <!doctype html>
 <html>
 <head>
-<?php include $_SERVER['DOCUMENT_ROOT']."/bloggity/resources/head_tags.php" ?>
+<?php include "./resources/head_tags.php" ?>
 <style>
 
 </style>
@@ -26,6 +26,7 @@ include $_SERVER['DOCUMENT_ROOT']."/bloggity/resources/db_connect.php";
 </head>
 
 <body onload="">
+
 
 </body>
 
