@@ -70,6 +70,8 @@ while ($row = mysqli_fetch_array($result)) {
 
 ?>
 
+</span>
+</div>
 </body>
 
 </html>

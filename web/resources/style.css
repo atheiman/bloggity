@@ -69,6 +69,7 @@ a:hover { text-decoration: underline; }
   height: -webkit-calc(100% - (60px));
   height: calc(100% - (60px));
   padding: 0px 15px;
+  overflow-y: scroll;
 }
 
 #page_content a {

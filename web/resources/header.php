@@ -2,6 +2,13 @@
   <a href='head_link1.php'>Head Link 1</a>
   <a href='head_link2.php'>Head Link 2</a>
   <a href='head_link3.php'>Head Link 3</a>
+  <?php
+  if (isset($_SESSION['userType'])) {
+    echo "<a href='logout.php'>Logout</a>" ;
+  } else {
+    echo "<a href='login.php'>Login</a>" ;
+  }
+  ?>
 </div>
 <?php
 if (isset($_SESSION['userType'])) {
