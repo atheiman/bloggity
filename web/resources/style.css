@@ -21,10 +21,12 @@ a:hover { text-decoration: underline; }
 .gray { color: #555; }
 .black { color: #000; }
 .white { color: #FFF; }
+.red { color: #C22; }
 .gray_bg { background-color: #BBB; }
 .black_bg { background-color: #000; }
 .white_bg { background-color: #FFF; }
 .center { text-align: center; }
+.right { float: right; }
 .large { font-size: 115%; }
 .larger { font-size: 130%; }
 .small { font-size: 85%; }
@@ -37,11 +39,16 @@ a:hover { text-decoration: underline; }
   vertical-align: middle;
   line-height: 60px;
   background-color: lightpink;
-  font-size: 115%;
+  font-size: 130%;
 }
 
 #header_bar a {
   margin: 0px 20px;
+}
+
+#header_bar span {
+  margin-right: 20px;
+  font-size: 70%;
 }
 
 #admin_bar {
@@ -49,7 +56,7 @@ a:hover { text-decoration: underline; }
   height: -moz-calc(100% - (60px));
   height: -webkit-calc(100% - (60px));
   height: calc(100% - (60px));
-  font-size: 115%;
+  font-size: 130%;
   background-color: gold;
 }
 

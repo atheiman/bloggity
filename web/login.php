@@ -1,20 +1,49 @@
 <?php
+
 session_start();
 
-// Testing
-session_destroy();
-$_SESSION['userType'] = 'Administrator';
-//$_SESSION['userType'] = 'Editor';
-
-// Secure Page
-//if (!isset($_SESSION['userType'])) {header('Location: login.php');}
-
-// Admin Only Page
-//if ($_SESSION['userType'] != 'Administrator') {die('This page is restricted to Adminstrators');}
+if ($_SERVER['REQUEST_METHOD'] == 'GET' and isset($_SESSION['userType'])) {header('Location: index.php');}
 
 // MySQL connection
 include './resources/db_connect.php';
 
+// PHP Functions
+include './resources/functions.php';
+
+$error = '';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  //var_dump($_POST); echo "<hr>";
+  $email_input = test_input($_POST['email_input']) ;
+  $password_input = test_input($_POST['password_input']) ;
+  $sql = "select U.* from Users as U
+  where U.email = '$email_input'" ;
+  $result = mysqli_query($con,$sql);
+  if ($result->num_rows == 0 ) {
+    $error = 'email not found';
+  } else {
+    while($row = mysqli_fetch_array($result)) {
+      //var_dump($row); echo "<hr>";
+      $userID = $row['userID'];
+      $password = $row['password'];
+      $userType = $row['userType'];
+      $firstName = $row['firstName'];
+      $lastName = $row['lastName'];
+      $email = $row['email'];
+    }
+    if ($password_input == $password) {
+      // Set Session vars
+      $_SESSION['userID'] = $userID;
+      $_SESSION['userType'] = $userType;
+      $_SESSION['firstName'] = $firstName;
+      $_SESSION['lastName'] = $lastName;
+      $_SESSION['email'] = $email;
+      echo "<script>window.location.assign('index.php')</script>";
+    } else {
+      $error = 'incorrect password';
+    }
+  }
+}
 ?>
 <!doctype html>
 <html>
@@ -24,7 +53,9 @@ include './resources/db_connect.php';
 <title>Test Bloggity</title>
 <link rel='icon' type='image/png' href='files/images/generic_icon.png'/>
 <style>
-
+  div {
+    margin: 15px 0px;
+  }
 </style>
 <script>
 
@@ -32,46 +63,36 @@ include './resources/db_connect.php';
 </head>
 
 <body onload="">
-<?php include './resources/header.php' ; ?>
-<!-- #page_content started -->
-<!--<h1 class='post_title'>Test Post Title</h1>
-<p>
-Here is some content that is a test.
-</p>
-<hr>
-<h1 class='post_title'>Another Test Post</h1>
-<p>
-This is some content of another test post.
-</p>-->
-
-<?php
-
-$sql = "select P.postID , P.ts , P.postTitle , P.postContent , U.userID , U.firstName , U.lastName , U.email from Posts as P , Users as U
-where P.userID = U.userID
-order by P.postID" ;
-$result = mysqli_query($con , $sql) ;
-while ($row = mysqli_fetch_array($result)) {
-  $postID = $row['postID'] ;
-  $ts = $row['ts'] ;
-  $postTitle = $row['postTitle'] ;
-  $postContent = $row['postContent'] ;
-  $userID = $row['userID'] ;
-  $firstName = $row['firstName'] ;
-  $lastName = $row['lastName'] ;
-  $email = $row['email'] ;
-  
-  echo "<h1 class='post_title'>$postTitle</h1>
-  <p>
-  $postContent
-  </p>
-  <span class='center gray'>Posted by $userID | $ts</span>
-  <hr>" ;
-}
-
-?>
-
-</span>
+<div>
+Login to Bloggity
 </div>
+<div id='content'>
+<form method='post' name='login_form' action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>'>
+Email: <input id='email_input' type='email' name='email_input' size='20' required><br>
+Password: <input id='password_input' type='password' name='password_input' size='20' required><br>
+<input type='submit' value='Login'><br>
+</form>
+<div class='red'>
+<?php
+if ($error != '') {echo "Error: " . $error;}
+echo "<script>";
+if ($error == 'incorrect password') {
+  echo "
+  document.forms['login_form']['email_input'].value = '" . $_POST['email_input'] . "';
+  document.getElementById('password_input').focus();
+  ";
+} else {
+  echo "
+  document.getElementById('email_input').focus();
+  ";
+}
+echo "</script>";
+echo "<hr>";
+//var_dump($error);
+?>
+</div>
+</div>
+
 </body>
 
 </html>

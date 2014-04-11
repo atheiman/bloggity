@@ -1,14 +1,21 @@
-<div id='header_bar' class='center'>
-  <a href='head_link1.php'>Head Link 1</a>
+<div id='header_bar' >
+  <a href='./'>Home</a>
   <a href='head_link2.php'>Head Link 2</a>
   <a href='head_link3.php'>Head Link 3</a>
+  <span class='right'> 
   <?php
   if (isset($_SESSION['userType'])) {
-    echo "<a href='logout.php'>Logout</a>" ;
+    echo "
+    <a href='myaccount.php' style='margin: 0px;'>" . $_SESSION['firstName'] . " " . $_SESSION['lastName'] . "</a> |
+    <a href='logout.php' style='margin: 0px;'>Logout</a>
+    " ;
   } else {
-    echo "<a href='login.php'>Login</a>" ;
+    echo "
+    <a href='login.php' style='margin: 0px;'>Login</a>
+    " ;
   }
   ?>
+  </span>
 </div>
 <?php
 if (isset($_SESSION['userType'])) {

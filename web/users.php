@@ -2,8 +2,8 @@
 session_start();
 
 // Testing
-//session_destroy();
-//$_SESSION['userType'] = 'Administrator';
+session_destroy();
+$_SESSION['userType'] = 'Administrator';
 //$_SESSION['userType'] = 'Editor';
 
 // Secure Page
@@ -46,26 +46,16 @@ This is some content of another test post.
 
 <?php
 
-$sql = "select P.postID , P.ts , P.postTitle , P.postContent , U.userID , U.firstName , U.lastName , U.email from Posts as P , Users as U
-where P.userID = U.userID
-order by P.postID" ;
+$sql = "select U.* from Users as U
+where U.userID = $userID;";
 $result = mysqli_query($con , $sql) ;
 while ($row = mysqli_fetch_array($result)) {
-  $postID = $row['postID'] ;
-  $ts = $row['ts'] ;
-  $postTitle = $row['postTitle'] ;
-  $postContent = $row['postContent'] ;
-  $userID = $row['userID'] ;
-  $firstName = $row['firstName'] ;
-  $lastName = $row['lastName'] ;
-  $email = $row['email'] ;
-  
-  echo "<h1 class='post_title'>$postTitle</h1>
-  <p>
-  $postContent
-  </p>
-  <span class='center gray'>Posted by $userID | $ts</span>
-  <hr>" ;
+  $userID = $row['userID'];
+  $password = $row['password'];
+  $userType = $row['userType'];
+  $firstName = $row['firstName'];
+  $lastName = $row['lastName'];
+  $email = $row['email'];
 }
 
 ?>
