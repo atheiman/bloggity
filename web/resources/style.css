@@ -65,10 +65,10 @@ a:hover { text-decoration: underline; }
 #page_content {
   float:left;
   background-color: lightskyblue;
-  height: -moz-calc(100% - (30px + 60px));
-  height: -webkit-calc(100% - (30px + 60px));
-  height: calc(100% - (30px + 60px));
-  padding: 15px;
+  height: -moz-calc(100% - (60px));
+  height: -webkit-calc(100% - (60px));
+  height: calc(100% - (60px));
+  padding: 0px 15px;
 }
 
 #page_content a {

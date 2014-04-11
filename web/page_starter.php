@@ -34,16 +34,6 @@ include './resources/db_connect.php';
 <body onload="">
 <?php include './resources/header.php' ; ?>
 <!-- #page_content started -->
-<!--<h1 class='post_title'>Test Post Title</h1>
-<p>
-Here is some content that is a test.
-</p>
-<hr>
-<h1 class='post_title'>Another Test Post</h1>
-<p>
-This is some content of another test post.
-</p>-->
-
 <?php
 
 ?>
