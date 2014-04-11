@@ -1,7 +1,8 @@
 <div id='header_bar' >
-  <a href='./'>Home</a>
-  <a href='head_link2.php'>Head Link 2</a>
-  <a href='head_link3.php'>Head Link 3</a>
+  <a href='index.php'>Home</a>
+  <a href='index.php'>Head Link 2</a>
+  <a href='index.php'>Head Link 3</a>
+  <a href='users.php'>About Us</a>
   <span class='right'> 
   <?php
   if (isset($_SESSION['userType'])) {
@@ -21,13 +22,13 @@
 if (isset($_SESSION['userType'])) {
   echo "
   <div id='admin_bar' style='width:150px;' class='center'>
-    <a href='admin_link1.php'>Posts</a>
-    <a href='admin_link2.php'>Pages</a>
-    <a href='admin_link3.php'>Style</a>
+    <a href='manage_posts.php'>Posts</a>
+    <a href='manage_pages.php'>Pages</a>
+    <a href='manage_style.php'>Style</a>
     ";
     if ($_SESSION['userType'] == 'Administrator') {
       echo "
-      <a href='admin_link4.php'>Users</a>
+      <a href='manage_users.php'>Users</a>
       ";
     }
   echo "

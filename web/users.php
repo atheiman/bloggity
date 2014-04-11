@@ -2,8 +2,8 @@
 session_start();
 
 // Testing
-session_destroy();
-$_SESSION['userType'] = 'Administrator';
+//session_destroy();
+//$_SESSION['userType'] = 'Administrator';
 //$_SESSION['userType'] = 'Editor';
 
 // Secure Page
@@ -14,6 +14,9 @@ $_SESSION['userType'] = 'Administrator';
 
 // MySQL connection
 include './resources/db_connect.php';
+
+// Functions
+include './resources/functions.php';
 
 ?>
 <!doctype html>
@@ -31,23 +34,13 @@ include './resources/db_connect.php';
 </script>
 </head>
 
-<body onload="">
+<body onload="removeUserColors(); ">
 <?php include './resources/header.php' ; ?>
 <!-- #page_content started -->
-<!--<h1 class='post_title'>Test Post Title</h1>
-<p>
-Here is some content that is a test.
-</p>
-<hr>
-<h1 class='post_title'>Another Test Post</h1>
-<p>
-This is some content of another test post.
-</p>-->
 
 <?php
 
-$sql = "select U.* from Users as U
-where U.userID = $userID;";
+$sql = "select U.* from Users as U";
 $result = mysqli_query($con , $sql) ;
 while ($row = mysqli_fetch_array($result)) {
   $userID = $row['userID'];
@@ -56,6 +49,15 @@ while ($row = mysqli_fetch_array($result)) {
   $firstName = $row['firstName'];
   $lastName = $row['lastName'];
   $email = $row['email'];
+  echo "<div class='user_div ";
+  if (isset($_GET['userID']) and test_input($_GET['userID']) == $userID) {
+    echo "white_bg";
+  }
+  echo "'>
+  $firstName $lastName<br>
+  <span class='gray'>$userID</span><br>
+  <a target='_blank' href='mailto:$email'>$email</a> <span class='gray'>$userType</span>
+  </div><hr>";
 }
 
 ?>

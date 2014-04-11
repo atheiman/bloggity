@@ -85,10 +85,18 @@ a:hover { text-decoration: underline; }
 
 #page_content a:hover {
   color: blue;
+  text-decoration: underline;
 }
 
 .post_title {
   text-align: center;
-  margin-top: 1.25em;
-  margin-bottom: .75em;
+  margin: .75em 0px;
+  //margin-top: 1.25em;
+  //margin-bottom: .75em;
+}
+
+.user_div {
+  margin: 15px 0px;
+  transition: background-color 2s;
+  -webkit-transition: background-color 2s;
 }

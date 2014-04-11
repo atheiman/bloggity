@@ -64,7 +64,9 @@ while ($row = mysqli_fetch_array($result)) {
   <p>
   $postContent
   </p>
-  <span class='center gray'>Posted by $userID | $ts</span>
+  <span class='center gray'><a href='users.php?userID=$userID' style='text-decoration:none; color:inherit;'>$userID</a> | " .
+  date('F j, Y' , strtotime($ts)) . "
+  </span>
   <hr>" ;
 }
 
