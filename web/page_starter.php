@@ -3,7 +3,7 @@ session_start();
 
 // Testing
 session_destroy();
-//$_SESSION['userType'] = 'Administrator';
+$_SESSION['userType'] = 'Administrator';
 //$_SESSION['userType'] = 'Editor';
 
 // Secure Page
@@ -34,7 +34,19 @@ include './resources/db_connect.php';
 <body onload="">
 <?php include './resources/header.php' ; ?>
 <!-- #page_content started -->
-Content of Page
+<!--<h1 class='post_title'>Test Post Title</h1>
+<p>
+Here is some content that is a test.
+</p>
+<hr>
+<h1 class='post_title'>Another Test Post</h1>
+<p>
+This is some content of another test post.
+</p>-->
+
+<?php
+
+?>
 
 </body>
 

@@ -18,11 +18,11 @@ if (isset($_SESSION['userType'])) {
     }
   echo "
   </div>
-  <div id='page_content' style='width:850px;'>
+  <div id='page_content' style='width:820px;'>
   ";
 } else {
   echo "
-  <div id='page_content' style='width:1000px;'>
+  <div id='page_content' style='width:970px;'>
   ";
 }
 ?>

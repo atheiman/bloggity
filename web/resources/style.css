@@ -1,9 +1,14 @@
+html {
+  height: 100%;
+}
+
 body {
-  font-family: 'courier new' , monospace;
+  font-family: 'arial' , monospace;
   font-size: 1em;
   color: #000;
   margin: 0px auto;
   width: 1000px;
+  height: 100%;
 }
 
 a {
@@ -19,7 +24,10 @@ a:hover { text-decoration: underline; }
 .gray_bg { background-color: #BBB; }
 .black_bg { background-color: #000; }
 .white_bg { background-color: #FFF; }
-.center {text-align: center; }
+.center { text-align: center; }
+.large { font-size: 115%; }
+.larger { font-size: 130%; }
+.small { font-size: 85%; }
 
 #header_bar {
   padding: 0px;
@@ -28,7 +36,8 @@ a:hover { text-decoration: underline; }
   width: 100%;
   vertical-align: middle;
   line-height: 60px;
-  //background-color: lightpink;
+  background-color: lightpink;
+  font-size: 115%;
 }
 
 #header_bar a {
@@ -37,6 +46,11 @@ a:hover { text-decoration: underline; }
 
 #admin_bar {
   float:left;
+  height: -moz-calc(100% - (60px));
+  height: -webkit-calc(100% - (60px));
+  height: calc(100% - (60px));
+  font-size: 115%;
+  background-color: gold;
 }
 
 #admin_bar a {
@@ -50,7 +64,11 @@ a:hover { text-decoration: underline; }
 
 #page_content {
   float:left;
-  //background-color: lightskyblue;
+  background-color: lightskyblue;
+  height: -moz-calc(100% - (30px + 60px));
+  height: -webkit-calc(100% - (30px + 60px));
+  height: calc(100% - (30px + 60px));
+  padding: 15px;
 }
 
 #page_content a {
@@ -59,4 +77,10 @@ a:hover { text-decoration: underline; }
 
 #page_content a:hover {
   color: blue;
+}
+
+.post_title {
+  text-align: center;
+  margin-top: 1.25em;
+  margin-bottom: .75em;
 }
